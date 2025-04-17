@@ -41,7 +41,7 @@ export default function MarketStat() {
                         Рыночная капитализация</p>
                     <p className="font-bold text-2xl xs:text-[50px] md:text-[72px] xl:text-[96px]
                         leading-[34px] xs:leading-[67px] md:leading-[96px] xl:leading-[128px]">
-                        ${!!data && shortenNumber(data[0]?.marketCap)}K</p>
+                        ${!!data && shortenNumber( data[0]?.marketCap || 0 )}K</p>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-5 md:gap-[30px] xl:gap-10 sm:items-end h-full justify-between">
                     <div className="flex flex-col items-end">
@@ -49,7 +49,7 @@ export default function MarketStat() {
                         leading-[13px] xs:leading-[17px] md:leading-[24px] xl:leading-[32px] whitespace-nowrap">Объём торгов (24ч)</p>
                         <p className="font-semibold text-[19px] xs:text-[25px] md:text-[36px] xl:text-[24px]
                         leading-[25px] xs:leading-[34px] md:leading-[48px] xl:leading-[64px]">
-                            ${!!data && data[0]?.volume.h24}</p>
+                            ${!!data && (data[0]?.volume.h24 || 0)}</p>
                     </div>
                     <div className="flex flex-col items-end">
                         <p className="text-[9px] xs:text-[13px] md:text-[18px] xl:text-[24px]
@@ -57,7 +57,7 @@ export default function MarketStat() {
                             Транзакции (24ч)</p>
                         <p className="font-semibold text-[19px] xs:text-[25px] md:text-[36px] xl:text-[24px]
                         leading-[25px] xs:leading-[34px] md:leading-[48px] xl:leading-[64px]">
-                            {!!data && data[0]?.txns.h24.buys + data[0]?.txns.h24.sells}</p>
+                            {!!data && ((data[0]?.txns.h24.buys + data[0]?.txns.h24.sells) || 0)}</p>
                     </div>
                     <div className="flex flex-col items-end">
                         <p className="text-[9px] xs:text-[13px] md:text-[18px] xl:text-[24px]
@@ -65,7 +65,7 @@ export default function MarketStat() {
                             Ликвидность</p>
                         <p className="font-semibold text-[19px] xs:text-[25px] md:text-[36px] xl:text-[24px]
                         leading-[25px] xs:leading-[34px] md:leading-[48px] xl:leading-[64px]">
-                            ${!!data && data[0]?.liquidity.usd}</p>
+                            ${!!data && (data[0]?.liquidity.usd || 0)}</p>
                     </div>
                 </div>
             </div>
